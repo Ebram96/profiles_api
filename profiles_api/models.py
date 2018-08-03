@@ -26,7 +26,7 @@ class UserProfileManager(BaseUserManager):
         """Creates and saves a super user"""
         user = self.create_user(email, first_name, last_name, password)
 
-        user.is_active = user.is_staff = True
+        user.is_superuser = user.is_staff = True
 
         user.save(using=self._db)
 
