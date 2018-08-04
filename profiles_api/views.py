@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from profiles_api import serializers
+from profiles_api import serializers, models
 # Create your views here.
 
 
@@ -37,3 +37,14 @@ class HelloAPIView(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def put(self, request, pk=None):
+        """Updates an object"""
+        return Response({"method": "put"})
+
+    def patch(self, request, pk=None):
+        """Partially updates an object"""
+        return Response({"method": "patch"})
+
+    def delete(self, request, pk=None):
+        """Deletes an object"""
+        return Response({"method": "delete"})
