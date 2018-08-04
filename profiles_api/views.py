@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 
 from profiles_api import serializers, models
 # Create your views here.
@@ -13,16 +13,13 @@ class HelloAPIView(APIView):
 
     def get(self, request, format=None):
         """Returns APIView features list"""
-        api_dict = {
-            "message": "Hello World!",
-            "API_view": [
-                "Uses HTTP methods as functions (get, post, patch, put, delete).",
-                "Similar to Django view",
-                "Mapped manually ot URLs",
-            ]
-        }
+        dat = [
+            "Uses HTTP methods as functions (get, post, patch, put, delete).",
+            "Similar to Django view",
+            "Mapped manually ot URLs",
+        ]
 
-        return Response(api_dict)
+        return Response({"message": "Hello World!", "Data": dat})
 
     def post(self, request):
         """Returns a hello message with a name"""
@@ -48,3 +45,15 @@ class HelloAPIView(APIView):
     def delete(self, request, pk=None):
         """Deletes an object"""
         return Response({"method": "delete"})
+
+
+class HelloViewSet(viewsets.ViewSet):
+    """Test API Viewset"""
+    def list(self, request):
+        """Returns a hello world message"""
+        dat = [
+            "Uses actions: (list, create, retrieve, update, partial update).",
+            "Maps to URLs using routers",
+        ]
+
+        return Response({"message": "Hello World! from viewset", "Data": dat})
