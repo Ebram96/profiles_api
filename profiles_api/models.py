@@ -53,3 +53,13 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         """Returns user's full name"""
         return self.first_name + " " + self.last_name
 
+
+class FeedItem(models.Model):
+    """Profile status update."""
+    user       = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    status     = models.CharField(max_length=256)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        """Return a string representation for an object."""
+        return self.status
