@@ -77,22 +77,22 @@ class HelloViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         """Gets an object by its ID"""
 
-        return Response({"http_method": "get"})
+        return Response({"http_method": "GET"})
 
     def update(self, request, pk=None):
         """Updates an object"""
 
-        return Response({"http_method": "put"})
+        return Response({"http_method": "PUT"})
 
     def partial_update(self, request, pk=None):
         """Updates an object partially"""
 
-        return Response({"http_method": "patch"})
+        return Response({"http_method": "PATCH"})
 
     def destroy(self, request, pk=None):
         """Deletes an object"""
 
-        return Response({"http_method": "delete"})
+        return Response({"http_method": "DELETE"})
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
