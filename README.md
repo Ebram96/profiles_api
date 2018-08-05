@@ -4,6 +4,7 @@ This repository contains a profiles (users) management API that enables the user
 * Do CRUD operations on profiles.
 * Authenticate users.
 * Do CRUD operations on posts as feed items.
+* Search for users.
 
 This API is created using Django and Django REST Framework based on classes:
 * APIView
